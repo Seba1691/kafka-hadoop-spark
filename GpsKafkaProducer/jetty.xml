@@ -1,0 +1,15 @@
+<?xml version="1.0"?> <!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9_3.dtd">
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
+	<Set name="ThreadPool">
+		<New class="org.eclipse.jetty.util.thread.QueuedThreadPool"> <!-- specify a bounded queue -->
+			<Arg>
+				<New class="java.util.concurrent.ArrayBlockingQueue">
+					<Arg type="int">6000</Arg>
+				</New>
+			</Arg>
+			<Set name="minThreads">5</Set>
+			<Set name="maxThreads">500</Set>
+			<Set name="detailedDump">false</Set>
+		</New>
+	</Set>
+</Configure>
